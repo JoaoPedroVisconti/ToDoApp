@@ -18,9 +18,11 @@ class User (db.Model):
     lastname = db.Column(db.String())
     password = db.Column(db.String())
     email = db.Column(db.String())
+    api_key = db.Column(db.String())
 
     #Creating the constructor
-    def __init__(self, firstname, lastname, email, password, username):
+    def __init__(self, api_key, firstname, lastname, email, password, username):
+        self.api_key = api_key
         self.firstname = firstname
         self.lastname = lastname
         self.email = email
@@ -32,6 +34,7 @@ class User (db.Model):
 
     def serialize(self):
         return{
+            'ipi_key' : self.api_key,
             'id' : self.id,
             'username' : self.username,
             'firstname' : self.firstname,

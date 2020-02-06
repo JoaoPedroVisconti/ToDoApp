@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/UI/Intray/intray_page.dart';
+import 'package:todoapp/UI/Login/loginscreen.dart';
 import 'package:todoapp/models/global.dart';
 
 void main() => runApp(MyApp());
@@ -9,11 +10,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'ToDo App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'ToDo App'),
+      home: FutureBuilder(
+        future: _calculation, // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+          switch (snapshot.connectionState){
+            case ConnectionState.none:
+              return Text('Press button to start');
+            case ConnectionState.active:
+            case ConnectionState.waiting:
+              return Text('Awaiting result...');
+            case ConnectionState.done:
+              if (snapshot.hasError)
+                return Text('Error: ${snapshot.error}');
+              return Text('Result: ${snapshot.data}'); 
+          }
+          return null; //Unreachable
+        },
+      ),
     );
   }
 }
