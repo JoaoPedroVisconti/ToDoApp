@@ -1,0 +1,5 @@
+
+Backend/env
+Backend/.vscode
+Backend/config.py
+*.pyc
