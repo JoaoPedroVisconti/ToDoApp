@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/models/classes/todoItem.dart';
+import 'package:todoapp/models/classes/task.dart';
 import 'package:todoapp/models/global.dart';
 import 'package:todoapp/models/widget/intray_todo_widget.dart';
 

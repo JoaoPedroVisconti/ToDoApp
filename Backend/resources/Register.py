@@ -58,7 +58,7 @@ class Register(Resource):
 
         result = User.serialize(user)
 
-        return {'status' : 'success', 'data' : result}
+        return {'status' : 'success', 'data' : result}, 201
 
     # Create api_key
     def generate_key(self):
