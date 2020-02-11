@@ -6,10 +6,10 @@ import 'package:todoapp/models/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
-  final VoidCallback signupPressed;
+  final VoidCallback login;
   final bool newUser;
 
-  const LoginPage({Key key, this.signupPressed, this.newUser})
+  const LoginPage({Key key, this.login, this.newUser,})
       : super(key: key);
 
   @override
@@ -94,6 +94,11 @@ class _LoginPageState extends State<LoginPage> {
                 FlatButton(
                   child: Text("Sign in", style: lighTodoTitle,),
                   onPressed: (){
+                    if (usernameText.text != null || passwordText.text != null){
+                      bloc.signinUser(usernameText.text, passwordText.text).then((){
+                        widget.login();
+                      });
+                    }
                   },
                 ),
               ],
@@ -152,7 +157,7 @@ class _LoginPageState extends State<LoginPage> {
                         passwordController.text,
                         emailController.text)
                     .then((_) {
-                  widget.signupPressed();
+                  widget.login();
                 });
               }
             },

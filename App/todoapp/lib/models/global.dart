@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 Color darkGreyColor = new Color(0xFF474747);
 Color lightGreyColor = new Color(0xFF6A6A6B);
-Color lightBlueColor = new Color(0xFF7781FF);
+Color lightBlueColor = new Color(0xFFB8B8B8);
+Color lightGrennColor = new Color(0xFF4CFE8D);
 
 TextStyle intrayTitleStyle = new TextStyle(
   fontFamily: 'Comic Sans MS', 
@@ -12,7 +13,7 @@ TextStyle intrayTitleStyle = new TextStyle(
 );
 
 TextStyle bigLightBlueTitle = new TextStyle(
-  fontFamily: 'Comic Sans MS', 
+  fontFamily: 'Bahnschrift', 
   fontWeight: FontWeight.bold, 
   color: lightBlueColor, 
   fontSize: 50
@@ -35,7 +36,7 @@ TextStyle lighTodoTitle = new TextStyle(
 TextStyle lighBoldText = new TextStyle(
   fontFamily: 'ComicSansMS', 
   fontWeight: FontWeight.bold, 
-  color: lightGreyColor, 
+  color: lightGrennColor, 
   fontSize: 20
 );
 

@@ -46,12 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // String apiKey = snapshot.data;
         // return LoginPage();
         // apiKey.length > 0 ? getHomePage() : 
-        return apiKey.length > 0 ? getHomePage() : LoginPage(signupPressed: signupPressed, newUser: false,);
+        return apiKey.length > 0 ? getHomePage() : LoginPage(login: login, newUser: false,);
       },
     );
   }
 
-  void signupPressed(){
+  void login(){
     setState(() {
       build(context);
     });

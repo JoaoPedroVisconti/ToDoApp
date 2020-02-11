@@ -32,6 +32,25 @@ class ApiProvider {
       throw Exception('Failed to load post');
     }
   }
+
+  Future signinUser(String username, String password) async {
+    final response = await client
+        .post("http://10.0.2.2:5000/api/signin", //Have to use this server for android configure in the emulator proxy as well
+        body: jsonEncode({
+          "username" : username,
+	        "password" : password,
+        }
+        )
+        );
+    final Map result = json.decode(response.body);
+    if (response.statusCode == 201) {
+      // If the call to the server was successful, parse the JSON
+      await saveApiKey(result["data"]["api_key"]);
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load post');
+    }
+  }
   //Storing the api key on the device
   saveApiKey(String api_key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

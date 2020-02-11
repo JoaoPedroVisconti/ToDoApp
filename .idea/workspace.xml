@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="733176e2-6772-4f1b-9002-b123bfc34304" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/UI/Intray/intray_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/lib/UI/Intray/intray_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/UI/Login/loginscreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/lib/UI/Login/loginscreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/models/classes/todoItem.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/models/global.dart" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/lib/models/global.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/lib/models/widget/intray_todo_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/lib/models/widget/intray_todo_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/todoapp/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/App/todoapp/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/resources/Register.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/resources/Register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Requirements_List_ToDo" beforeDir="false" />
-    </list>
+    <list default="true" id="733176e2-6772-4f1b-9002-b123bfc34304" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +12,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="252" />
-    <option name="y" value="123" />
+    <option name="x" value="251" />
+    <option name="y" value="122" />
     <option name="width" value="1490" />
-    <option name="height" value="933" />
+    <option name="height" value="934" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -49,13 +36,11 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/AwesomeProject" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -138,7 +123,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="202" y="99" width="1192" height="746" extended-state="0" />
+    <frame x="201" y="98" width="1192" height="747" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.34982333" />
