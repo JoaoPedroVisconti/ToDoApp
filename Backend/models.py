@@ -10,7 +10,6 @@ db = SQLAlchemy()
 class User (db.Model):
 
     __tablename__ = 'users'
-    __table_args__ = tuple(db.UniqueConstraint('id', 'username', name='my_2uniq'))
 
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(), unique=True)
@@ -41,4 +40,39 @@ class User (db.Model):
             'lastname' : self.lastname,
             'password' : self.password,
             'email' : self.email,
+        }
+
+class Task (db.Model):
+
+    __tablename__ = 'tasks'
+
+    id = db.Column(db.Integer(), primary_key=True)
+    user_id = db.Column(db.Integer(), db.ForeignKey('users.id'))
+    note = db.Column(db.String())
+    completed = db.Column(db.Boolean(), default=False, nullable=False)
+    repeats = db.Column(db.String())
+    deadline = db.Column(db.String())
+    reminder = db.Column(db.String())
+
+    #Creating the constructor
+    def __init__(self, user_id, note, completed, repeats, deadline, reminder):
+        self.user_id = user_id
+        self.note = note
+        self.completed = completed
+        self.repeats = repeats
+        self.deadline = deadline
+        self.reminder = reminder
+
+    def __repr__(self):
+        return '<id {}>'.format(self.id)
+
+    def serialize(self):
+        return{
+            'user_id' : self.user_id,
+            'id' : self.id,
+            'note' : self.note,
+            'comleted' : self.completed,
+            'repeats' : self.repeats,
+            'deadline' : self.deadline,
+            'reminder' : self.reminder,
         }

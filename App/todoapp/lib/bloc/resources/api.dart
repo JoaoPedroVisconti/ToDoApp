@@ -33,9 +33,12 @@ class ApiProvider {
     }
   }
 
-  Future signinUser(String username, String password) async {
+  Future signinUser(String username, String password, String apiKey) async {
     final response = await client
         .post("http://10.0.2.2:5000/api/signin", //Have to use this server for android configure in the emulator proxy as well
+        headers: {
+          "Authorization" : apiKey
+        },
         body: jsonEncode({
           "username" : username,
 	        "password" : password,

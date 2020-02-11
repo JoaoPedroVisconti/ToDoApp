@@ -35,14 +35,11 @@ class Register(Resource):
         if user:
             return {'message' : 'Email already exist'}, 400
 
+        #Generate api key
         api_key = self.generate_key()
         user = User.query.filter_by(api_key=api_key).first()
         if user:
             return {'message' : 'Api already exist'}, 400 
-
-        # username = data['username']
-        # password = data['password']
-        # email = data['email']
         
         # Create the user
         user = User(
@@ -53,6 +50,7 @@ class Register(Resource):
             password = json_data['password'],
             username = json_data['username']
         )
+        # Add to the database
         db.session.add(user)
         db.session.commit()
 
