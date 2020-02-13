@@ -28,21 +28,21 @@ class _IntrayPageState extends State<IntrayPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: darkGreyColor,
-        child: StreamBuilder(
-            // Wrap our widget with a StreamBuilder
-            stream: tasksBloc.getTasks, // pass our Stream getter here
-            initialData: [], // provide an initial data
-            builder: (context, snapshot) {
-              print("intray_page 25 -> Data:" + snapshot.data.toString());
-              return _buildReorderableListSimple(context, taskList);
-            })
+      color: darkGreyColor,
+      child: StreamBuilder(
+          // Wrap our widget with a StreamBuilder
+          stream: tasksBloc.getTasks, // pass our Stream getter here
+          initialData: [], // provide an initial data
+          builder: (context, snapshot) {
+            return _buildReorderableListSimple(context, snapshot.data);
+          }
+      )
         // child: ReorderableListView(
         //   padding: EdgeInsets.only(top: 300),
         //   children: todoItems,
         //   onReorder: _onReorder,
         // )
-        );
+    );
   }
 
   Widget _buildListTile(BuildContext context, Task item) {
