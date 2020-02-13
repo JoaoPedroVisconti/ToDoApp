@@ -21,6 +21,7 @@ class Tasks(Resource):
                 # Create task
                 task = Task(
                     user_id = user.id,
+                    title = json_data['title'],
                     note = json_data['note'],
                     completed = json_data['completed'],
                     repeats = json_data['repeats'],

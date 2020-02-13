@@ -17,7 +17,7 @@ class Task {
   factory Task.fromJson(Map<String, dynamic> parsedJson) {
     print("task 18 -> TAKS = " + parsedJson["note"]);
     return Task(
-      "Task",
+      parsedJson['title'],
       parsedJson['completed'],
       parsedJson['id'],
       parsedJson['note'],
