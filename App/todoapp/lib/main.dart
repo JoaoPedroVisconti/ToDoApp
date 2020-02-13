@@ -32,16 +32,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String apiKey = "";
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: signinUser(),
       builder: (BuildContext context, AsyncSnapshot snapshot){
-        String apiKey = "";
         if (snapshot.hasData){  
           apiKey = snapshot.data;
         } else {
-          print("No data");
+          print("No data apiKey - main 44");
         }
         // String apiKey = snapshot.data;
         // return LoginPage();
@@ -59,11 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future signinUser() async{
     String userName = "";
-    String apiKey = await getApiKey();
-    if (apiKey.length > 0) {
-      bloc.signinUser("","", apiKey);
+    apiKey = await getApiKey();
+    if (apiKey != null){
+      if (apiKey.length > 0) {
+        userBloc.signinUser("","", apiKey);
+      } else {
+        print("No api Key - main 66");
+      }
     } else {
-      print("No api Key - main 66");
+      apiKey = "";
     }
     return apiKey;
   }
@@ -85,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Stack(children: <Widget>[
               TabBarView(
                 children: [
-                  IntrayPage(),
+                  IntrayPage(apiKey: apiKey),
                   new Container(
                     child: Center(
                       child: FlatButton(
