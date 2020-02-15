@@ -92,9 +92,4 @@ class _IntrayPageState extends State<IntrayPage> {
       taskList.insert(newIndex, item);
     });
   }
-
-  // Future<List<Task>> getList() async {
-  //   List<Task> tasks = await tasksBloc.getUserTasks(widget.apiKey);
-  //   return tasks;
-  // }
 }

@@ -10,19 +10,18 @@ class ApiProvider {
   Client client = Client();
   final _apiKey = 'your_api_key';
 
-  Future<User> registerUser(String username, String firstname, String lastname, String password, String email) async {
-    final response = await client
-        .post("http://10.0.2.2:5000/api/register", //Have to use this server for android configure in the emulator proxy as well
+  Future<User> registerUser(String username, String firstname, String lastname,
+      String password, String email) async {
+    final response = await client.post(
+        "http://10.0.2.2:5000/api/register", //Have to use this server for android configure in the emulator proxy as well
         //headers: "",
         body: jsonEncode({
-          "email" : email,
-        	"username" : username,
-	        "password" : password,
-        	"firstname" : firstname,
-	        "lastname" : lastname	
-        }
-        )
-        );
+          "email": email,
+          "username": username,
+          "password": password,
+          "firstname": firstname,
+          "lastname": lastname
+        }));
     final Map result = json.decode(response.body);
     if (response.statusCode == 201) {
       // If the call to the server was successful, parse the JSON
@@ -35,17 +34,13 @@ class ApiProvider {
   }
 
   Future signinUser(String username, String password, String apiKey) async {
-    final response = await client
-        .post("http://10.0.2.2:5000/api/signin", //Have to use this server for android configure in the emulator proxy as well
-        headers: {
-          "Authorization" : apiKey
-        },
+    final response = await client.post(
+        "http://10.0.2.2:5000/api/signin", //Have to use this server for android configure in the emulator proxy as well
+        headers: {"Authorization": apiKey},
         body: jsonEncode({
-          "username" : username,
-	        "password" : password,
-        }
-        )
-        );
+          "username": username,
+          "password": password,
+        }));
     final Map result = json.decode(response.body);
     if (response.statusCode == 201) {
       // If the call to the server was successful, parse the JSON
@@ -56,38 +51,62 @@ class ApiProvider {
     }
   }
 
-  Future <List<Task>> getUserTasks(String apiKey) async {
-    final response = await client
-        .get("http://10.0.2.2:5000/api/tasks", //Have to use this server for android configure in the emulator proxy as well
-        headers: {
-          "Authorization" : apiKey
-        },
-        );
+  Future<List<Task>> getUserTasks(String apiKey) async {
+    final response = await client.get(
+      "http://10.0.2.2:5000/api/tasks", //Have to use this server for android configure in the emulator proxy as well
+      headers: {"Authorization": apiKey},
+    );
     final Map result = json.decode(response.body);
     if (response.statusCode == 201) {
       // If the call to the server was successful, parse the JSON
       List<Task> tasks = [];
-      for (Map json_ in result["data"]){
+      for (Map json_ in result["data"]) {
         try {
           tasks.add(Task.fromJson(json_));
-        }
-        catch (Exception) {
+        } catch (Exception) {
           print(Exception);
         }
       }
-      for (Task task in tasks){
+      for (Task task in tasks) {
         print("api 79 -> Task id = " + task.taskId.toString());
       }
       return tasks;
     } else {
       // If that call was not successful, throw an error.
+      print(json.decode(response.body));
       throw Exception('Failed to load tasks');
     }
   }
-  
+
+  Future addUserTask(
+      String apiKey, String taskName, String deadline) async {
+    final response = await client.post(
+        "http://10.0.2.2:5000/api/tasks", //Have to use this server for android configure in the emulator proxy as well
+        headers: {
+          "Authorization": apiKey
+        },
+        body: jsonEncode({
+          "title": taskName,
+          "note": "",
+          "repeats": "",
+          "completed": false,
+          "deadline": deadline,
+          "reminder": "",
+        })
+    );
+    if (response.statusCode == 201) {
+      // If the call to the server was successful, parse the JSON
+      print("Task added -> api 97");
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to add tasks');
+    }
+  }
+
   //Storing the api key on the device
   saveApiKey(String api_key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString("API_Token", api_key);
   }
+
 }
